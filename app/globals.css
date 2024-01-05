@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+  @apply w-full bg-stone-900 text-white min-h-screen max-w-[1500px]
+}
+header{
+  @apply bg-stone-950 flex flex-row justify-between items-center px-4 py-2
+}
+footer{
+  @apply bottom-0 absolute w-full bg-stone-950
+}
+
+a{
+  @apply hover:text-amber-700 hover:underline
+}
+
+button{
+  @apply rounded-md border px-4 py-1 bg-stone-950 border-stone-500 hover:border-amber-900 hover:bg-amber-800
+}
+
+.cz-flex{
+  @apply flex flex-row gap-2 items-center justify-center
+}
+
+input[type=text], input[type=email], input[type=password]{
+  @apply rounded bg-inherit outline-none p-2
+}
+input[type=submit]{
+  @apply cursor-pointer hover:bg-amber-700 rounded border border-amber-700 px-4 py-2
+}
+label{
+  @apply block border rounded
+}
