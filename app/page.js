@@ -1,9 +1,8 @@
-import Homepage from "./Homepage";
+import Hero from "@/components/Hero";
 
-export default function Home() {
-  return (
-    <main>
-      <Homepage />
-    </main>
-  );
+export default function Page() {
+
+  return <div>
+    <Hero/>
+  </div>;
 }

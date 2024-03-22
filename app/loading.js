@@ -1,11 +1,8 @@
-import { FaSpinner } from "react-icons/fa";
 
 const loading = () => {
   return (
-    <section className=" w-full">
-      <FaSpinner className="animate-spin text-6xl text-center mx-auto text-amber-500" />
-    </section>
-  );
-};
+    <div>loading</div>
+  )
+}
 
-export default loading;
+export default loading

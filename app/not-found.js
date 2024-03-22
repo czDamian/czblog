@@ -1,7 +1,7 @@
 
 const notFound = () => {
   return (
-    <div>Page does not exist</div>
+    <div className="text-6xl">Page not found</div>
   )
 }
 
