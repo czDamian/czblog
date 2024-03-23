@@ -43,8 +43,8 @@ const Register = () => {
   }
 
   return (
-    <div className="grid mx-10">
-      <form onSubmit={handleSubmit} className="m-auto">
+    <div className="grid">
+      <form onSubmit={handleSubmit} className="m-auto mx-10">
         <input
           type="email"
           name="email"
