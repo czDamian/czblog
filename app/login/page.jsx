@@ -2,45 +2,31 @@
 import { useState } from "react";
 
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [name, setName] = useState("");
-  const [password, setPassword] = useState("");
-
-  const addNewUser = async (e) => {
+  const [info, setInfo] = useState({ email: "", password: "" });
+  function handleInput(e) {
+    setInfo((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  }
+  function handleSubmit(e) {
     e.preventDefault();
-    let response = await fetch("api/posts", {
-      method: "POST",
-      body: JSON.stringify({ email, name, password }),
-    });
-    response = await response.json();
-    if (response.ok) {
-      alert("user successfully registered");
-    } else {
-      alert("failed to register user");
-    }
-  };
+  }
+  console.log({ info });
   return (
     <div className="grid">
-      <form action="" className="m-auto">
+      <form onSubmit={handleSubmit} className="m-auto">
         <input
           type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          name="email"
+          onChange={(e) => handleInput(e)}
           placeholder="Enter your Email"
         />
-        <input
-          type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          placeholder="Enter your Name"
-        />
+
         <input
           type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          name="password"
+          onChange={(e) => handleInput(e)}
           placeholder="Enter your Password"
         />
-        <input type="submit" value="Register" onClick={addNewUser} />
+        <input type="submit" value="Login" />
       </form>
     </div>
   );

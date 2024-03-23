@@ -3,13 +3,13 @@
 @tailwind utilities;
 
 body{
-  @apply w-full text-sm bg-amber-950 text-white
+  @apply w-full text-sm bg-black text-white
 }
 header{
   @apply flex items-center justify-between
 }
 a{
-  @apply hover:opacity-70 text-sky-500
+  @apply hover:underline text-white
 }
 form{
   @apply w-[400px]
@@ -18,5 +18,5 @@ input{
   @apply w-full px-2 py-3 rounded my-2 bg-inherit border 
 }
 input[type=submit]{
-  @apply bg-yellow-900  hover:bg-yellow-700 cursor-pointer
+  @apply bg-black  hover:bg-yellow-700 cursor-pointer
 }
