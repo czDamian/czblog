@@ -7,9 +7,9 @@ import bcrypt from "bcrypt";
 async function login(credentials) {
   try {
     connectDB();
-    const user = await User.findone({ email: credentials.email });
-    if (!user) throw new Errror("User does not exist");
-    const isCorrect = await bcrypt.compare(credentials.password, user.password);
+    const user = await User.findOne({ email: credentials.email });
+    if (!user) throw new Error("User does not exist");
+    const isCorrect = await bcrypt.compare(credentials.password,user.password);
     if (!isCorrect) throw new Errror("Password does not match");
     return user;
   } catch (error) {
@@ -48,8 +48,8 @@ export const authOptions = {
     },
     async session({ session, token }) {
       if (token) {
-        session.email = token.email;
-        session.id = token.id;
+        session.user.email = token.email;
+        session.user.id = token.id;
       }
       console.log("session: ", session);
       return session;

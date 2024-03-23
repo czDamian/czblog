@@ -5,7 +5,7 @@ const Accordion = ({ title, content }) => {
   const [accOpen, setAccOpen] = useState(false);
 
   return (
-    <div className="py-2 border bg-yellow-800">
+    <div className="py-2 border bg-neutral-900">
       <button
         onClick={() => setAccOpen((a) => !a)}
         className="flex w-full px-4 rounded justify-between items-center py-1">

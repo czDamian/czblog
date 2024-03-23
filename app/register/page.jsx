@@ -43,7 +43,7 @@ const Register = () => {
   }
 
   return (
-    <div className="grid">
+    <div className="flex mx-10 md:mx-0">
       <form onSubmit={handleSubmit} className="m-auto mx-10">
         <input
           type="email"
@@ -59,7 +59,7 @@ const Register = () => {
           placeholder="Enter your Password"
         />
         {error && <span>{error}</span>}
-        <input type="submit" value={pending? "Registering": "Register"} />
+        <input type="submit" value={pending ? "Registering" : "Register"} />
       </form>
     </div>
   );
