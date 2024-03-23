@@ -29,7 +29,7 @@ const Register = () => {
         setPending(false);
         const form = e.target;
         form.reset();
-        alert("user successfully registered");
+        alert("Registration successful. Proceed to login!");
         router.push("/login");
       } else {
         const errorData = await res.json();
@@ -59,7 +59,7 @@ const Register = () => {
           placeholder="Enter your Password"
         />
         {error && <span>{error}</span>}
-        <input type="submit" value="Register" />
+        <input type="submit" value={pending? "Registering": "Register"} />
       </form>
     </div>
   );
