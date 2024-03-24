@@ -17,6 +17,7 @@ const Login = () => {
     e.preventDefault();
     if (!info.email || !info.password) {
       setError("All fields are required");
+      return;
     }
     try {
       setPending(true);
@@ -39,8 +40,10 @@ const Login = () => {
   }
 
   return (
-    <div className="flex mx-10 md:mx-0">
+    <div className="flex flex-col mx-10 md:mx-0">
+      <h1 className="text-2xl m-auto my-4">LOGIN TO YOUR ACCOUNT</h1>
       <form onSubmit={handleSubmit} className="m-auto">
+        {error && <span className="text-red-500">{error}</span>}
         <input
           type="email"
           name="email"
@@ -54,8 +57,7 @@ const Login = () => {
           onChange={(e) => handleInput(e)}
           placeholder="Enter your Password"
         />
-        {error && <span>{error}</span>}
-        <input type="submit" value={pending ? "logging in" : "Login"} />
+        <input type="submit" value={pending ? "logging in" : "LOGIN"} />
       </form>
     </div>
   );

@@ -4,8 +4,14 @@ import { NextResponse } from "next/server";
 import bcrypt from "bcrypt";
 export async function POST(req) {
   try {
-    await connectDB();
     const { email, password } = await req.json();
+    if (!email || !password) {
+      return NextResponse.json(
+        { message: "Email and Password required" },
+        { status: 500 }
+      );;
+    }
+    await connectDB();
     const exists = await User.findOne({ email });
     if (exists) {
       return NextResponse.json(

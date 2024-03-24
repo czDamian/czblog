@@ -1,9 +1,11 @@
 "use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { getServerSession } from "next-auth";
+import { Redirect } from "next";
 
 const Register = () => {
-  const router= useRouter();
+  const router = useRouter();
   const [info, setInfo] = useState({ email: "", password: "" });
   const [error, setError] = useState("");
   const [pending, setPending] = useState(false);
@@ -11,11 +13,7 @@ const Register = () => {
     setInfo((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   }
   async function handleSubmit(e) {
-   
     e.preventDefault();
-    if (!info.email || !info.password) {
-      setError("All fields are required");
-    }
     try {
       setPending(true);
       const res = await fetch("api/register", {
@@ -43,8 +41,10 @@ const Register = () => {
   }
 
   return (
-    <div className="flex mx-10 md:mx-0">
-      <form onSubmit={handleSubmit} className="m-auto mx-10">
+    <div className="flex flex-col mx-10 md:mx-0">
+      <h1 className="m-auto text-2xl my-4">CREATE A NEW ACCOUNT</h1>
+      <form onSubmit={handleSubmit} className="m-auto">
+        {error && <span className="text-red-500">{error}</span>}
         <input
           type="email"
           name="email"
@@ -58,8 +58,7 @@ const Register = () => {
           onChange={(e) => handleInput(e)}
           placeholder="Enter your Password"
         />
-        {error && <span>{error}</span>}
-        <input type="submit" value={pending ? "Registering" : "Register"} />
+        <input type="submit" value={pending ? "Registering" : "REGISTER"} />
       </form>
     </div>
   );

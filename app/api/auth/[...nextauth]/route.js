@@ -6,10 +6,10 @@ import bcrypt from "bcrypt";
 
 async function login(credentials) {
   try {
-    connectDB();
+    await connectDB();
     const user = await User.findOne({ email: credentials.email });
     if (!user) throw new Error("User does not exist");
-    const isCorrect = await bcrypt.compare(credentials.password,user.password);
+    const isCorrect = await bcrypt.compare(credentials.password, user.password);
     if (!isCorrect) throw new Errror("Password does not match");
     return user;
   } catch (error) {
