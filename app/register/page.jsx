@@ -5,11 +5,9 @@ import RegisterForm from "@/components/RegisterForm";
 
 async function Register() {
   const session = await getServerSession(authOptions);
-
   if (session) {
     redirect("/dashboard");
   }
-
   return <RegisterForm />;
 }
 

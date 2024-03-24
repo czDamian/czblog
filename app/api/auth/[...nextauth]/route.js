@@ -43,7 +43,6 @@ export const authOptions = {
         token.email = user.email;
         token.id = user.id;
       }
-      console.log("token: ", token);
       return token;
     },
     async session({ session, token }) {
@@ -51,7 +50,6 @@ export const authOptions = {
         session.user.email = token.email;
         session.user.id = token.id;
       }
-      console.log("session: ", session);
       return session;
     },
   },
