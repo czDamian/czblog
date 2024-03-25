@@ -1,6 +1,10 @@
 import Link from "next/link";
+import { redirect } from "next/navigation";
+import { getServerSession } from "next-auth";
+import { authOptions } from "./api/auth/[...nextauth]/route";
+import Blog from "./blog/page";
 
-export default function Page() {
+function NotLoggedIn() {
   return (
     <div className="grid">
       <div className="m-auto text-2xl text-center">
@@ -13,4 +17,11 @@ export default function Page() {
       </div>
     </div>
   );
+}
+export default async function Page() {
+  const session = await getServerSession(authOptions);
+  if (session) {
+    return <Blog />;
+  }
+  return <NotLoggedIn />;
 }
