@@ -1,8 +1,8 @@
 import Link from "next/link";
-import { redirect } from "next/navigation";
 import { getServerSession } from "next-auth";
 import { authOptions } from "./api/auth/[...nextauth]/route";
 import Blog from "./blog/page";
+import FAQ from "@/components/FAQ";
 
 function NotLoggedIn() {
   return (
@@ -20,6 +20,8 @@ function NotLoggedIn() {
 }
 export default async function Page() {
   const session = await getServerSession(authOptions);
+  <FAQ />;
+
   if (session) {
     return <Blog />;
   }

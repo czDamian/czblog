@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body{
-  @apply w-full text-sm bg-black text-white max-w-[1400px]
+  @apply w-full text-sm bg-slate-800 text-white max-w-[1400px]
 }
 header{
   @apply flex items-center justify-between
