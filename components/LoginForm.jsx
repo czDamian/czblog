@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { signIn } from "next-auth/react";
+import Link from "next/link";
 
 const LoginForm = () => {
   const router = useRouter();
@@ -38,26 +39,57 @@ const LoginForm = () => {
       setError("fatal error");
     }
   }
-
+function LoginLoading() {
+  return (
+    <>
+      <span className="loading loading-spinner"></span>
+     logging in
+    </>
+  );
+}
   return (
     <div className="flex flex-col mx-10 md:mx-0">
-      <h1 className="text-2xl m-auto my-4">LOGIN TO YOUR ACCOUNT</h1>
-      <form onSubmit={handleSubmit} className="m-auto">
+      <h1 className="text-2xl m-auto">Sign In To Continue</h1>
+        <form onSubmit={handleSubmit} className="card-body m-auto">
         {error && <span className="text-red-500">{error}</span>}
-        <input
-          type="email"
-          name="email"
-          onChange={(e) => handleInput(e)}
-          placeholder="Enter your Email"
-        />
-
-        <input
-          type="password"
-          name="password"
-          onChange={(e) => handleInput(e)}
-          placeholder="Enter your Password"
-        />
-        <input type="submit" value={pending ? "logging in" : "LOGIN"} />
+        <div className="form-control">
+          <label className="label">
+            <span className="label-text">Email</span>
+          </label>
+          <input
+            type="email"
+            name="email"
+            onChange={(e) => handleInput(e)}
+            placeholder="eg: abc@abc.com"
+            className="input input-bordered"
+            required
+          />
+        </div>
+        <div className="form-control">
+          <label className="label">
+            <span className="label-text">Password</span>
+          </label>
+          <input
+            type="password"
+            name="password"
+            onChange={(e) => handleInput(e)}
+            placeholder="************"
+            className="input input-bordered"
+            required
+          />
+          <label className="label">
+            <Link href="#" className="label-text-alt link link-hover">
+              Forgot password?
+            </Link>
+          </label>
+        </div>
+        <div className="form-control mt-4">
+          <button
+            type="submit"
+            className="btn btn-primary">
+            {pending ?<LoginLoading/> : "LOGIN"}
+          </button>
+        </div>
       </form>
     </div>
   );
