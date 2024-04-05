@@ -7,7 +7,7 @@ body{
 }
 
 input, textarea, select{
-  @apply  max-w-[90vw] w-full my-2 p-2 rounded bg-inherit border-2 border-green-900 text-xs lg:text-sm
+  @apply  max-w-[90vw] w-full my-2 p-2 rounded bg-inherit border-2 border-green-950 text-xs lg:text-sm
 }
 input[type=submit]{
   @apply bg-green-800 cursor-pointer rounded-md active:bg-green-600
