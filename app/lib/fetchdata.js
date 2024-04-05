@@ -2,26 +2,22 @@ import { Category, User } from "./models";
 
 export const fetchUsers = async () => {
   try {
-    const result = await User.find().sort({ createdAt: -1 }).maxTimeMS(30000).exec();
-    const users = result;
-    const userCount = result.length;
+    const users = await User.find().sort({ createdAt: -1 });
+    const userCount = users.length;
     return { users, userCount };
   } catch (error) {
-    console.log(error);
-    throw new Error("Failed to fetch users");
+    console.error("Failed to fetch users:", error);
+    throw new Error(`Failed to fetch users: ${error.message}`);
   }
 };
 
 export const fetchCategories = async () => {
   try {
-    const result = await Category.find()
-      .sort({ createdAt: -1 })
-      .maxTimeMS(30000)
-      .exec();
-    const categories = result;
-    const categoryCount = result.length;
+    const categories = await Category.find().sort({ createdAt: -1 });
+    const categoryCount = categories.length;
     return { categories, categoryCount };
   } catch (error) {
+    console.error("Failed to fetch categories:", error);
     throw new Error(`Failed to fetch categories: ${error.message}`);
   }
 };
