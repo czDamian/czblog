@@ -1,13 +1,11 @@
 "use server";
 import { revalidatePath } from "next/cache";
 import { Category, User } from "./models";
-import { connectDb } from "./utils";
 
 export const addUser = async (formData) => {
   const { username, password, role, email } = Object.fromEntries(formData);
 
   try {
-    connectDb();
     const newUser = new User({
       username,
       password,

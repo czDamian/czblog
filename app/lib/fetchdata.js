@@ -1,9 +1,7 @@
 import { Category, User } from "./models";
-import { connectDb } from "./utils";
 
 export const fetchUsers = async () => {
   try {
-    connectDb();
     const result = await User.find().sort({ createdAt: -1 }).exec();
     const users = result;
     const userCount = result.length;
