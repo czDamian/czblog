@@ -1,7 +1,9 @@
 import { connectDb } from "../lib/utils";
 
 const profile = { name: "admin", email: "abc@abc.com" };
-
+export const metadata = {
+  title: "Dashboard",
+};
 const Dashboard = () => {
   connectDb();
   return (

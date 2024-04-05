@@ -1,6 +1,8 @@
 import { fetchCategories } from "@/app/lib/fetchdata";
 import { addCategory } from "@/app/lib/actions";
-
+export const metadata = {
+  title: "Category",
+};
 const NewCategory = () => {
   return (
     <div className="flex">

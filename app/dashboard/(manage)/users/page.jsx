@@ -1,5 +1,7 @@
 import { fetchUsers } from "@/app/lib/fetchdata";
-
+export const metadata = {
+  title: "Users",
+};
 const UserList = async () => {
   const { users, userCount } = await fetchUsers();
   return (

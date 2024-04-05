@@ -26,7 +26,6 @@ export const addCategory = async (formData) => {
     return { success: false, message: "Fields cannot be empty" };
   }
   try {
-    connectDb();
     const newCategory = new Category({
       categoryName,
       categoryDesc,
