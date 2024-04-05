@@ -4,8 +4,10 @@ import { connectDb } from "./utils";
 export const fetchUsers = async () => {
   try {
     connectDb();
-    const users = await User.find();
-    return users;
+    const result = await User.find().sort({ createdAt: -1 }).exec();
+    const users = result;
+    const userCount = result.length;
+    return { users, userCount };
   } catch (error) {
     console.log(error);
     throw new Error("Failed to fetch users");
