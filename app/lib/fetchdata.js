@@ -2,7 +2,7 @@ import { Category, User } from "./models";
 
 export const fetchUsers = async () => {
   try {
-    const result = await User.find().sort({ createdAt: -1 }).exec();
+    const result = await User.find().sort({ createdAt: -1 }).maxTimeMS(30000).exec();
     const users = result;
     const userCount = result.length;
     return { users, userCount };
@@ -14,7 +14,10 @@ export const fetchUsers = async () => {
 
 export const fetchCategories = async () => {
   try {
-    const result = await Category.find().sort({ createdAt: -1 }).exec();
+    const result = await Category.find()
+      .sort({ createdAt: -1 })
+      .maxTimeMS(30000)
+      .exec();
     const categories = result;
     const categoryCount = result.length;
     return { categories, categoryCount };
