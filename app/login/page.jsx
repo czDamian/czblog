@@ -1,17 +1,15 @@
-import { redirect } from "next/navigation";
-import { getServerSession } from "next-auth";
-import { authOptions } from "../api/auth/[...nextauth]/route";
-import LoginForm from "@/components/LoginForm";
-
-export const metadata = {
-  title: "Login",
+const Login = () => {
+  return (
+    <section className="text-center">
+      <h1>Sign In To Continue</h1>
+      <div className="flex">
+        <form action="#" className="w-[350px] m-auto">
+          <input type="email" name="email" placeholder="email@example.com" />
+          <input type="password" name="password" placeholder="********" />
+          <input type="submit" value="Sign In" />
+        </form>
+      </div>
+    </section>
+  );
 };
-async function Login() {
-  const session = await getServerSession(authOptions);
-  if (session) {
-    redirect("/dashboard");
-  }
-  return <LoginForm />;
-}
-
 export default Login;

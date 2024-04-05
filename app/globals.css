@@ -3,20 +3,21 @@
 @tailwind utilities;
 
 body{
-  @apply w-full text-white max-w-[1400px] 
+  @apply  w-full h-full max-w-[1500px] bg-custom-900 text-white
 }
-header{
-  @apply flex items-center justify-between
-}
-a{
-  @apply hover:underline text-white
-}
-form{
-  @apply w-[400px]
-}
-input{
-  @apply w-full px-2 py-3 rounded my-2 bg-inherit border 
+
+input, textarea, select{
+  @apply  max-w-[90vw] w-full my-2 p-2 rounded bg-inherit border-2 border-green-900 text-xs lg:text-sm
 }
 input[type=submit]{
-  @apply bg-black  hover:bg-slate-700 cursor-pointer
+  @apply bg-green-800 cursor-pointer rounded-md active:bg-green-600
+}
+option{
+  @apply bg-custom-900 rounded text-white font-mono
+}
+.navLink{
+  @apply px-2 py-1 rounded bg-custom-900 hover:bg-custom-800
+}
+button{
+  @apply border rounded px-2 py-1 cursor-pointer active:bg-opacity-60
 }

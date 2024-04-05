@@ -1,8 +1,4 @@
 import { FaSpinner } from "react-icons/fa6";
-import Header from "@/components/Header";
-
-import Footer from "@/components/Footer";
-
 
 const loading = () => {
   return (

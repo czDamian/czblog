@@ -1,9 +1,9 @@
-import { Raleway } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import Footer from "@/app/ui/Footer";
+import Header from "@/app/ui/Header";
 
-const raleway = Raleway({ subsets: ["latin"] });
+const montserrat = Montserrat({ subsets: ["latin"] });
 
 export const metadata = {
   title: {
@@ -15,9 +15,9 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" data-theme="night">
+    <html lang="en">
       <body
-        className={` ${raleway.className} grid grid-rows-[1fr_8fr_1fr] h-screen`}>
+        className={` ${montserrat.className} grid grid-rows-[1fr_8fr_1fr] h-screen`}>
         <Header />
         {children}
         <Footer />
