@@ -1,9 +1,11 @@
-import BlogPosts from "./(posts)/BlogPosts";
+import Link from "next/link";
 
 const page = () => {
   return (
-    <div className="bg-dark-900 h-100 p-20">
-      <BlogPosts/>
+    <div className=" p-4 space-x-4 m-40">
+      <Link href="/login">Login</Link>
+      <Link href="/register">Register</Link>
+      <Link href="/dashboard ">Dashboard</Link>
     </div>
   );
 };
