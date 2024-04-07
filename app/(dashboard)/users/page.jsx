@@ -1,7 +1,15 @@
+export const metadata = {
+  title: "Users",
+};
+
+import { fetchUsers } from "@/app/lib/data";
 import Pagination from "@/app/ui/dashboard/Pagination";
+import Link from "next/link";
 import { FaSearchengin } from "react-icons/fa6";
 
-const Users = () => {
+const Users = async () => {
+  const users = await fetchUsers();
+  console.log(users);
   return (
     <div>
       <div className="p-2 flex justify-between items-center bg-custom-900 rounded-lg">
@@ -33,7 +41,9 @@ const Users = () => {
             <td> 02 Aug 2023 </td>
             <td> User </td>
             <td className="space-x-2 text-white">
-              <button className="bg-green-800">Edit</button>
+              <Link href="/users/0x0000000">
+                <button className="bg-green-800">Edit</button>
+              </Link>
               <button className="bg-red-800">Delete</button>
             </td>
           </tr>
@@ -59,7 +69,7 @@ const Users = () => {
           </tr>
         </tbody>
       </table>
-      <Pagination/>
+      <Pagination />
     </div>
   );
 };
